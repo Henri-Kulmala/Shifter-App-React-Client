@@ -1,129 +1,190 @@
-# Shifter-App REACT Client
+# Shifter – React Admin Client
+
+Shifter is a React-based admin control panel for managing work shifts, employees, and schedules in a retail environment.  
+The application was developed as part of a university course and designed around a real workplace use case in grocery retail.
+
+This frontend communicates with a separate Java Spring Boot backend via REST APIs and is intended for internal managerial use rather than public access.
 
 ---
 
-## DEMO 
+## Purpose & Use Case
 
+The frontend application is designed for store managers to:
+- Plan daily work shifts
+- Assign employees to shifts and workstations
+- Define working hours and breaks
+- Manage employees and user accounts
+- View saved workdays
+- Export workday schedules as PDF files for sharing
 
+The application models a real internal planning tool rather than a consumer-facing product.
 
-## LOGIN
-<details>
-<summary> Preview of the login page </summary>
-  
-
-### Login page
-![image](https://github.com/user-attachments/assets/3c108112-d826-47a8-8cb4-968e636066af)
-
-
-### Login error
-![image](https://github.com/user-attachments/assets/f93cd54d-be3b-4dfc-bebc-739bfdcebce7)
-</details>
 ---
 
+## Tech Stack
 
-<br>
+- React
+- TypeScript
+- Vite
+- REST API integration
+- CSS Modules
 
-## PAGES
+---
+
+## Authentication & Roles
+
+- Session-based authentication handled by backend
+- Login via form-based authentication
+- Role-based access control
+- Users have either `ADMIN` or `USER` privileges
+- Most management functionality is restricted to `ADMIN` users
+
+---
+
+## Application Pages
+
+### Login
+Authentication view with validation and error handling.
+
+<details open>
+<summary>Preview</summary>
+
+![Login page](https://github.com/user-attachments/assets/3c108112-d826-47a8-8cb4-968e636066af)
+
+![Login error](https://github.com/user-attachments/assets/f93cd54d-be3b-4dfc-bebc-739bfdcebce7)
+</details>
+
+---
+
+### Landing Page
+Initial view after successful authentication.
+
+<details open>
+<summary>Preview</summary>
+
+![Landing page](https://github.com/user-attachments/assets/79c035c0-68a7-4672-bb75-ae55475b5a09)
+</details>
+
+---
+
+### ShiftPlanner
+Primary planning interface for creating and editing workdays.
+
+Features:
+- Select a date from a calendar
+- Automatically generate default shifts
+- Edit shift name, time, workstation, and breaks
+- Assign employees to shifts
+- Save workday data to backend
+
+Supports minimized and expanded views for improved usability.
+
+<details open>
+<summary>Minimized view</summary>
+
+![Minimized ShiftPlanner](https://github.com/user-attachments/assets/5e69a21e-78ab-43a6-b61c-4b13f1106577)
+</details>
+
+<details open>
+<summary>Expanded view</summary>
+
+![Expanded ShiftPlanner](https://github.com/user-attachments/assets/f4c67c18-a0fb-4ef7-8519-bc12caf535c6)
+</details>
+
+---
+
+### Schedule
+View previously saved workdays and export schedules.
+
+Features:
+- Calendar-based date selection
+- Viewing stored workdays
+- Exporting workday data as PDF files
+
+<details open>
+<summary>Preview</summary>
+
+![Schedule view](https://github.com/user-attachments/assets/182206a1-242f-48c8-8903-5745ca4c77cb)
+</details>
+
+---
+
+### Profile / Account Management
+Manage users and employee data.
+
+Features:
+- Create, edit, and delete users
+- Assign roles (ADMIN / USER)
+- Password validation
+- Confirmation dialogs for destructive actions
 
 <details>
-  <summary> Landing page </summary>
-  
-  ![image](https://github.com/user-attachments/assets/79c035c0-68a7-4672-bb75-ae55475b5a09)
+<summary>Preview</summary>
 
-</details>
-<br>
+![Profile page](https://github.com/user-attachments/assets/c346cf29-f7a4-4635-85b1-05dc8f2ffc30)
 
-<details>
-  <summary> ShiftPlanner </summary>
+![User list](https://github.com/user-attachments/assets/94ed332c-b4ae-4603-b708-f19031cecc89)
 
-  ## Plan a workday on ShiftPlanner
-  <br>
-  
-  After selecting a date from the calendar, the application generates a default workday with three different shifts. These shifts have a predetermined amount of breaks, which are calculated from the working hours. The column header e.g "K1" represents the workstation. 
-  <br> 
+![Edit user](https://github.com/user-attachments/assets/53e0869a-0e04-4b52-9fd5-c153c2b88f20)
 
-  ## Minimized view
+![Delete confirmation](https://github.com/user-attachments/assets/c690b1b3-bb01-4f3e-a874-f17e03215405)
 
-  ![image](https://github.com/user-attachments/assets/5e69a21e-78ab-43a6-b61c-4b13f1106577)
+![Password validation](https://github.com/user-attachments/assets/14960434-d2d2-410f-b0f6-7aa79e570bc8)
 
-  <br>
-
-  ## Maximized view
-
-  ![image](https://github.com/user-attachments/assets/f4c67c18-a0fb-4ef7-8519-bc12caf535c6)
-
-  <br>
-  Here you can add employees to the shifts and edit the shift's name, breaks or time. Once you're ready, you can hit "Save" to save the current workday.
-  <br>
-  <br>
-  
-</details>
-<br>
-<details>
-  <summary> Schedule </summary>
-
-  ## View your saved workdays
-  <br>
-
-  Schedule let's you view your saved workdays and print them as PDF-files by selecting a date from the calendar and pressing "Lataa työpäivä PDF".
-
-  <br>
-  
-  ![image](https://github.com/user-attachments/assets/182206a1-242f-48c8-8903-5745ca4c77cb)
-  
-  <br>
-  <br>
-  
+![Password validation error](https://github.com/user-attachments/assets/2cef1617-b309-4652-824d-97f18232e703)
 </details>
 
-<br>
-<details> 
-  <summary> Profile </summary>
+---
 
-  ## Edit your own and your employees Users/Information
+## Project Structure
 
-  <br>
+The project follows a standard Vite + React structure:
+- Page-based routing
+- Reusable UI components
+- API communication layer
+- CSS Modules for scoped styling
 
-  Click on the "avatar"- icon on the top right and navigate to "Account". Here you can add, edit and remove Employees/Users. Users have either ADMIN/USER privileges.
+---
 
-  <br>
+## Local Development
 
-  ![image](https://github.com/user-attachments/assets/c346cf29-f7a4-4635-85b1-05dc8f2ffc30)
+### Requirements
+- Node.js
+- npm or yarn
+- Running backend server
 
-  <br>
+### Install dependencies
+```bash
+npm install
+````
 
-  ![image](https://github.com/user-attachments/assets/94ed332c-b4ae-4603-b708-f19031cecc89)
+### Start development server
+```bash
+npm run dev
+````
 
-  <br>
+### Environment Variables
+The frontend expects environment variables such as:
+```bash
+VITE_API_URL=http://localhost:8080
+````
+These variables define the backend API base URL.
 
-  ### Editing a user (delete by pressing the "trashcan" -icon
+---
 
-  ![image](https://github.com/user-attachments/assets/53e0869a-0e04-4b52-9fd5-c153c2b88f20)
+## Backend Dependency
 
-  <br>
+This frontend requires the Shifter backend to be running locally.
+All authentication, authorization, data persistence, and business logic are handled by the backend service.
 
-  ### User Deletion Alert
-
-  ![image](https://github.com/user-attachments/assets/c690b1b3-bb01-4f3e-a874-f17e03215405)
-
-  <br>
-
-  ### Password validation when creating/editing users
-  
-  ![image](https://github.com/user-attachments/assets/14960434-d2d2-410f-b0f6-7aa79e570bc8)
-
-  <br>
-
-  ![image](https://github.com/user-attachments/assets/2cef1617-b309-4652-824d-97f18232e703)
-
-  
-
-
-
-</details>
-
-<br>
---- 
+Backend repository:
 
 
+[Shifter Backend](https://github.com/Henri-Kulmala/Shifter--Vuoronsuunnittelu)
 
+---
+
+## Project Status
+
+This project was developed for educational and portfolio purposes.
+While designed around a real workplace use case, it is not actively maintained for production deployment.
