@@ -118,7 +118,7 @@ Features:
 - Password validation
 - Confirmation dialogs for destructive actions
 
-<details>
+<details open>
 <summary>Preview</summary>
 
 ![Profile page](https://github.com/user-attachments/assets/c346cf29-f7a4-4635-85b1-05dc8f2ffc30)
